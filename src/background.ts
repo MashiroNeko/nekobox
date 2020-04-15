@@ -16,14 +16,18 @@ protocol.registerSchemesAsPrivileged([{scheme: 'app', privileges: { secure: true
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600, frame: false ,webPreferences: {
-    nodeIntegration: true
-  } });
+  win = new BrowserWindow({ width: 800, height: 600,
+    titleBarStyle: "default",
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+    if (process.env.IS_TEST) win.webContents.openDevTools()
     // reverse judgement -> source !process.env.IS_TEST
   } else {
     createProtocol('app');

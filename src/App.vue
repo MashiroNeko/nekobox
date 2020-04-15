@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <div id="nav-bar"></div>
+
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
-import NavBar from "@/components/navBar.vue";
 
 @Component({
   components: {
-    NavBar
   },
 })
 export default class App extends Vue {}
@@ -28,13 +25,12 @@ export default class App extends Vue {}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-* {
-  scrollbar-3dlight-color: #d4d0c8;
-  scrollbar-highlight-color: #fff;
-  scrollbar-face-color: #e4e4e4;
-  scrollbar-arrow-color: #666;
-  scrollbar-shadow-color: #808080;
-  scrollbar-darkshadow-color: #d7dce0;
-  scrollbar-base-color: #d7dce0;
-}
+  #nav-bar{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: #194c66;
+    -webkit-app-region: drag;
+    z-index: 9999;
+  }
 </style>
